@@ -1,0 +1,220 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}Bimal Chunara{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="{% url 'training:index' %}" class="logo">
+          BIMAL <span>CHUNARA</span>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+          <a href="{% url 'training:index' %}" class="nav-link"> Home </a>
+
+          <a href="{% url 'training:about' %}" class="nav-link"> About </a>
+
+          <!-- Gallery Dropdown -->
+          <div class="dropdown">
+            <a
+          
+              class="nav-link dropdown-btn"
+            >
+              Gallery <span class="arrow">▼</span>
+            </a>
+
+            <div class="dropdown-menu">
+              <a href="{% url 'training:photos' %}">Photos</a>
+              <a href="{% url 'training:video_gallery' %}">Videos</a>
+              
+            </div>
+          </div>
+
+          <a href="{% url 'training:services' %}" class="nav-link">
+            Services
+          </a>
+
+          <a href="{% url 'training:contact' %}" class="nav-link"> Contact </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <!-- ================= FOOTER ================= -->
+
+    {% load static %}
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Column 1: Personal Info -->
+          <div class="footer-column">
+            <h2 class="footer-name">Bimal Chunara</h2>
+
+            <p class="footer-description">
+              Full Stack Developer &amp; Web Designer<br />
+              Crafting Digital Dreams Since 2026
+            </p>
+
+            <p class="footer-address">
+              Attariya-3, Kailali<br />
+              Sudurpashchim Province, Nepal
+            </p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+
+            <ul class="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-column">
+            <h3 class="footer-title">Services</h3>
+
+            <ul class="footer-links">
+              <li><a href="/services">Website Development</a></li>
+              <li><a href="/services">E-commerce</a></li>
+              <li><a href="/services">School &amp; College</a></li>
+              <li><a href="/services">Full Stack Development</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social Media -->
+          <div class="footer-column">
+            <h3 class="footer-title">Follow Me</h3>
+
+            <div class="social-icons">
+              <!-- Facebook -->
+              <a
+                href="https://www.facebook.com/share/1AgXNiBR5u/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon facebook"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/multitalentbimal?igsi=NHY2aWR0dnUxaW0x"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon instagram"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <!-- YouTube -->
+              <a
+                href="https://www.youtube.com/channel/UCa8uZQ_se_DZOSFWN2W3j-A"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon youtube"
+                aria-label="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+
+              <!-- WhatsApp -->
+              <a
+                href="https://wa.me/9779763840729"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon whatsapp"
+                aria-label="WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+
+              <!-- TikTok -->
+              <a
+                href="https://www.tiktok.com/@simple_boy_bimal?_r=1&_t=ZS-99BIJJ6VIC9"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon tiktok"
+                aria-label="TikTok"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon linkedin"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+              <!-- GitHub -->
+              <a
+                href="https://github.com/bimalchunara2064"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon github"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+
+            <!-- Email -->
+            <div class="footer-email">
+              <p>Email</p>
+
+              <a href="mailto:bimalchunara@gmail.com">
+                bimalchunara@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Bimal Chunara | Web Hero. All Rights Reserved.</p>
+
+          <p>Made with <span class="heart">❤️</span> in Nepal</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{% static 'JS/scripts.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

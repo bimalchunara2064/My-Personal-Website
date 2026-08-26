@@ -1,0 +1,141 @@
+{% extends 'base.html' %} {% block content %}
+<main class="container video-detail">
+  <a class="back-link" href="{% url 'training:video_gallery' %}"
+    >&larr; Back to videos</a
+  >
+
+  <article class="video-detail-card">
+    <header class="video-detail-header">
+      <span class="category-label">{{ video.get_category_display }}</span>
+      <h1>{{ video.title }}</h1>
+      <div class="stats">
+        <span>&#128065; {{ video.views }} views</span>
+        <span>&#8595; {{ video.downloads }} downloads</span>
+      </div>
+    </header>
+
+    <div class="video-player">
+      {% if video.video_file %}
+      <video
+        controls
+        preload="metadata"
+        poster="{% if video.thumbnail %}{{ video.thumbnail.url }}{% endif %}"
+      >
+        <source src="{{ video.video_file.url }}" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+      {% elif video.youtube_url %}
+      <iframe
+        src="{{ video.youtube_url }}"
+        title="{{ video.title }}"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+        "
+        allowfullscreen
+      ></iframe>
+      {% elif video.thumbnail %}
+      <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" />
+      {% else %}
+      <p>Video media is not available.</p>
+      {% endif %}
+    </div>
+
+    {% if video.description %}
+    <div class="video-description">
+      <p>{{ video.description|linebreaksbr }}</p>
+    </div>
+    {% endif %} {% if video.video_file %}
+    <a class="btn" href="{% url 'training:download_video' video.slug %}"
+      >Download video</a
+    >
+    {% endif %}
+  </article>
+
+  {% if related_videos %}
+  <section class="related-videos">
+    <h2>More videos</h2>
+    <div class="video-grid">
+      {% for related_video in related_videos %}
+      <article class="video-card">
+        <div class="thumbnail">
+          {% if related_video.thumbnail %}
+          <img
+            src="{{ related_video.thumbnail.url }}"
+            alt="{{ related_video.title }}"
+          />
+          {% else %}
+          <div class="thumbnail-placeholder">Video</div>
+          {% endif %}
+        </div>
+        <div class="video-content">
+          <h3>{{ related_video.title }}</h3>
+          <a
+            class="btn watch"
+            href="{% url 'training:video_detail' related_video.slug %}"
+            >Watch</a
+          >
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</main>
+
+<style>
+  .video-detail {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .video-detail-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+  }
+  .video-detail-header h1 {
+    margin: 0.6rem 0;
+  }
+  .video-player {
+    margin: 1.5rem 0;
+    background: #111;
+    aspect-ratio: 16 / 9;
+  }
+  .video-player video,
+  .video-player iframe,
+  .video-player img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border: 0;
+  }
+  .video-player p {
+    color: #fff;
+    padding: 2rem;
+  }
+  .video-description {
+    margin: 1.25rem 0;
+    line-height: 1.7;
+  }
+  .related-videos {
+    margin-top: 2rem;
+  }
+  .thumbnail-placeholder {
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    background: #222;
+    color: #fff;
+  }
+</style>
+{% endblock %}

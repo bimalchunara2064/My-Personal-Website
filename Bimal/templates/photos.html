@@ -1,0 +1,310 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="gallery-hero">
+  <div class="hero-content">
+    <span class="hero-small"> My Photography </span>
+
+    <h1>My <span>Gallery</span></h1>
+
+    <p>
+      A collection of my personal memories, school events, special moments and
+      experiences.
+    </p>
+  </div>
+</section>
+
+<!-- ================= FILTER ================= -->
+
+<section class="filter-section">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterPhotos('all', this)">
+      All Photos
+    </button>
+
+    <button class="filter-btn" onclick="filterPhotos('personal', this)">
+      Personal
+    </button>
+
+    <button class="filter-btn" onclick="filterPhotos('school', this)">
+      School Event
+    </button>
+
+    <button class="filter-btn" onclick="filterPhotos('travel', this)">
+      Travel
+    </button>
+
+    <button class="filter-btn" onclick="filterPhotos('my family', this)">
+      My Family
+    </button>
+    <button class="filter-btn" onclick="filterPhotos('sports', this)">
+      Sports Teams
+    </button>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<main class="gallery-container">
+  {% if photos %}
+
+  <div class="gallery-grid" id="galleryGrid">
+    {% for photo in photos %}
+
+    <article class="photo-card" data-category="{{ photo.category }}">
+      <div class="photo-image">
+        <img
+          src="{{ photo.image.url }}"
+          alt="{{ photo.title }}"
+          loading="lazy"
+        />
+
+        <div class="image-overlay"></div>
+      </div>
+
+      <div class="photo-content">
+        <span class="category"> {{ photo.get_category_display }} </span>
+
+        <h3>{{ photo.title }}</h3>
+
+        {% if photo.description %}
+        <p>{{ photo.description|truncatechars:80 }}</p>
+        {% endif %}
+
+        <div class="photo-bottom">
+          <span class="views"> 👁 {{ photo.views }} views </span>
+
+          <button
+            class="watch-btn"
+            onclick="openModal(
+                            '{{ forloop.counter0 }}'
+                        )"
+          >
+            Watch →
+          </button>
+        </div>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+
+  {% else %}
+
+  <div class="empty">
+    <h2>No Photos Yet</h2>
+
+    <p>Add photos from Django Admin.</p>
+  </div>
+
+  {% endif %}
+</main>
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="photoModal">
+  <button class="close" onclick="closeModal()">×</button>
+
+  <button class="slider-btn prev" onclick="previousPhoto()">‹</button>
+
+  <img id="modalImage" class="modal-image" src="" alt="" />
+
+  <button class="slider-btn next" onclick="nextPhoto()">›</button>
+
+  <div class="modal-info">
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalCategory"></p>
+
+    <a id="downloadButton" class="download-btn" href="" download>
+      ↓ Download Photo
+    </a>
+  </div>
+</div>
+
+<script>
+
+  /* ================= PHOTO DATA ================= */
+
+  const photos = [
+      {% for photo in photos %}
+      {
+          image: "{{ photo.image.url }}",
+          title: "{{ photo.title|escapejs }}",
+          category: "{{ photo.get_category_display|escapejs }}"
+      }
+      {% if not forloop.last %},{% endif %}
+      {% endfor %}
+  ];
+
+
+  let currentIndex = 0;
+
+
+  /* ================= OPEN ================= */
+
+  function openModal(index) {
+
+      currentIndex = parseInt(index);
+
+      showPhoto(currentIndex);
+
+      document
+          .getElementById("photoModal")
+          .classList.add("show");
+
+      document.body.style.overflow = "hidden";
+  }
+
+
+  /* ================= SHOW ================= */
+
+  function showPhoto(index) {
+
+      if (!photos.length) return;
+
+      const photo = photos[index];
+
+      document
+          .getElementById("modalImage")
+          .src = photo.image;
+
+      document
+          .getElementById("modalTitle")
+          .textContent = photo.title;
+
+      document
+          .getElementById("modalCategory")
+          .textContent = photo.category;
+
+      document
+          .getElementById("downloadButton")
+          .href = photo.image;
+  }
+
+
+  /* ================= NEXT ================= */
+
+  function nextPhoto() {
+
+      currentIndex++;
+
+      if (currentIndex >= photos.length) {
+          currentIndex = 0;
+      }
+
+      showPhoto(currentIndex);
+  }
+
+
+  /* ================= PREVIOUS ================= */
+
+  function previousPhoto() {
+
+      currentIndex--;
+
+      if (currentIndex < 0) {
+          currentIndex = photos.length - 1;
+      }
+
+      showPhoto(currentIndex);
+  }
+
+
+  /* ================= CLOSE ================= */
+
+  function closeModal() {
+
+      document
+          .getElementById("photoModal")
+          .classList.remove("show");
+
+      document.body.style.overflow = "auto";
+  }
+
+
+  /* ================= FILTER ================= */
+
+  function filterPhotos(category, button) {
+
+      const cards =
+          document.querySelectorAll(".photo-card");
+
+      const buttons =
+          document.querySelectorAll(".filter-btn");
+
+
+      buttons.forEach(btn => {
+          btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+
+      cards.forEach(card => {
+
+          if (
+              category === "all" ||
+              card.dataset.category === category
+          ) {
+
+              card.style.display = "block";
+
+          } else {
+
+              card.style.display = "none";
+
+          }
+
+      });
+
+  }
+
+
+  /* ================= KEYBOARD ================= */
+
+  document.addEventListener(
+      "keydown",
+      function(event) {
+
+          const modal =
+              document.getElementById("photoModal");
+
+          if (!modal.classList.contains("show")) {
+              return;
+          }
+
+          if (event.key === "ArrowRight") {
+              nextPhoto();
+          }
+
+          if (event.key === "ArrowLeft") {
+              previousPhoto();
+          }
+
+          if (event.key === "Escape") {
+              closeModal();
+          }
+
+      }
+  );
+
+
+  /* ================= CLICK OUTSIDE ================= */
+
+  document
+      .getElementById("photoModal")
+      .addEventListener(
+          "click",
+          function(event) {
+
+              if (event.target === this) {
+                  closeModal();
+              }
+
+          }
+      );
+</script>
+
+{% endblock %}

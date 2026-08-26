@@ -1,0 +1,118 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+  <div class="badge">MY VIDEOGRAPHY</div>
+
+  <h1>My <span>Videos</span></h1>
+
+  <p>
+    A collection of my personal memories, rap performances, school events,
+    travels, sports and special moments.
+  </p>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+
+<div class="categories">
+  {% for value, label in categories %}
+
+  <a
+    href="?category={{ value }}"
+    class="category {% if active_category == value %} active {% endif %}"
+  >
+    {{ label }}
+  </a>
+
+  {% endfor %}
+</div>
+
+<!-- ================= VIDEOS ================= -->
+
+<main class="container">
+  <div class="section-title">
+    <h2>
+      {% if active_category == 'all' %} All Videos {% else %} {{
+      active_category|title }} {% endif %}
+    </h2>
+
+    <span> {{ videos|length }} Videos </span>
+  </div>
+
+  {% if videos %}
+
+  <div class="video-grid">
+    {% for video in videos %}
+
+    <article class="video-card">
+      <!-- THUMBNAIL -->
+
+      <div class="thumbnail">
+        {% if video.thumbnail %}
+
+        <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" />
+
+        {% elif video.video_file %}
+
+        <video muted preload="metadata">
+          <source src="{{ video.video_file.url }}" type="video/mp4" />
+        </video>
+
+        {% endif %}
+
+        <div class="play-button">▶</div>
+
+        <div class="category-label">{{ video.get_category_display }}</div>
+      </div>
+
+      <!-- CONTENT -->
+
+      <div class="video-content">
+        <h3>{{ video.title }}</h3>
+
+        <p class="description">
+          {{ video.description|default:"Watch this special video from my
+          personal collection."|truncatechars:90 }}
+        </p>
+
+        <div class="stats">
+          <span> 👁 {{ video.views }} views </span>
+
+          <span> ⬇ {{ video.downloads }} </span>
+        </div>
+
+        <div class="buttons">
+          <a
+            href="{% url 'training:video_detail' video.slug %}"
+            class="btn watch"
+          >
+            ▶ Watch
+          </a>
+
+          {% if video.video_file %}
+
+          <a href="{% url 'training:download_video' video.slug %}" class="btn">
+            ↓ Download
+          </a>
+
+          {% endif %}
+        </div>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+
+  {% else %}
+
+  <div class="empty">
+    <h3>No Videos Found</h3>
+
+    <p>Videos will appear here after uploading them from the admin panel.</p>
+  </div>
+
+  {% endif %}
+</main>
+
+{% endblock %}

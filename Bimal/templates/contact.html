@@ -1,0 +1,438 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="contact-section">
+  <div class="contact-container">
+    <!-- Header -->
+    <div class="contact-header">
+      <h1>Contact Us</h1>
+
+      <p>Have a project in mind? I'm just a message away.</p>
+    </div>
+
+    <!-- Main Contact Area -->
+    <div class="contact-wrapper">
+      <!-- =====================================
+                 LEFT: CONTACT FORM
+            ====================================== -->
+
+      <div class="contact-form-area">
+        <h2>Send Your Message</h2>
+
+        <form
+          id="contactForm"
+          action="{% url 'training:contact' %}"
+          method="POST"
+        >
+          {% csrf_token %}
+
+          <!-- First & Last Name -->
+          <div class="name-grid">
+            <div class="form-group">
+              <label for="firstName">
+                First Name
+                <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="firstName"
+                name="first_name"
+                placeholder="Bimal"
+                required
+              />
+
+              <p id="firstNameError" class="form-error"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">
+                Last Name
+                <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="lastName"
+                name="last_name"
+                placeholder="Chunara"
+                required
+              />
+
+              <p id="lastNameError" class="form-error"></p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">
+              Email Address
+              <span>*</span>
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="bimalchunara@gmail.com"
+              required
+            />
+
+            <p id="emailError" class="form-error"></p>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">
+              Phone Number
+              <span>*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+977 98-XXXXXXXX"
+              required
+            />
+
+            <p id="phoneError" class="form-error"></p>
+          </div>
+
+          <!-- Service -->
+          <div class="form-group">
+            <label for="service"> Interested Service </label>
+
+            <select id="service" name="service">
+              <option value="">Select Service</option>
+
+              <option value="web">Web Development</option>
+
+              <option value="ecommerce">E-commerce Website</option>
+
+              <option value="mobile">Mobile App Development</option>
+
+              <option value="school">School / College Website</option>
+
+              <option value="hospital">Hospital / Clinic Website</option>
+
+              <option value="fullstack">Full Stack Development</option>
+
+              <option value="training">IT Training</option>
+
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">
+              Message
+              <span>*</span>
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+
+            <p id="messageError" class="form-error"></p>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="submitBtn" class="submit-button">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- =====================================
+                 RIGHT: CONTACT INFORMATION
+            ====================================== -->
+
+      <div class="contact-info-area">
+        <h2>Contact Information</h2>
+
+        <div class="contact-info-list">
+          <!-- Address -->
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+
+            <div>
+              <p class="contact-info-title">Address</p>
+
+              <p class="contact-info-text">
+                Attariya-3, Kailali<br />
+                Sudurpashchim Province, Nepal
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="contact-info-item">
+            <div class="contact-icon">📞</div>
+
+            <div>
+              <p class="contact-info-title">Phone</p>
+
+              <a href="#" class="contact-link"> +9779763840729 </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-info-item">
+            <div class="contact-icon">✉️</div>
+
+            <div>
+              <p class="contact-info-title">Email</p>
+
+              <a href="#" class="contact-link"> bimalchunara29@gmail.com </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3495.8752551206053!2d80.5511360747444!3d28.812791075873502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a1910037148991%3A0x2d272ec533a41a12!2sAttariya%20Chauraha!5e0!3m2!1sen!2snp!4v1786857885091!5m2!1sen!2snp"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-container">
+  <!-- HEADER -->
+
+  <div class="heading">
+    <div class="icon">🎓</div>
+
+    <h1>Course Admission</h1>
+
+    <p>Start your learning journey with our professional training programs.</p>
+  </div>
+
+  <!-- FORM -->
+
+  <div class="form-card">
+    {% if messages %} {% for message in messages %}
+
+    <div class="message">{{ message }}</div>
+
+    {% endfor %} {% endif %}
+
+    <form method="POST" action="{% url 'training:admission' %}">
+      {% csrf_token %} {% if form.errors %}
+      <div class="message">
+        Please correct the highlighted admission details and submit again. {{
+        form.errors }}
+      </div>
+      {% endif %}
+
+      <!-- PERSONAL INFORMATION -->
+
+      <div class="section-title">
+        <span>👤</span>
+        Personal Information
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label> Full Name <span>*</span> </label>
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label> Email Address <span>*</span> </label>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="example@gmail.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label> Phone Number <span>*</span> </label>
+
+          <input type="tel" name="phone" placeholder="98XXXXXXXX" required />
+        </div>
+
+        <div class="form-group">
+          <label> Address <span>*</span> </label>
+
+          <input
+            type="text"
+            name="address"
+            placeholder="Enter your address"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label> Education </label>
+
+          <input
+            type="text"
+            name="education"
+            placeholder="SEE / +2 / Bachelor / Other"
+          />
+        </div>
+
+        <div class="form-group">
+          <label> Gender <span>*</span> </label>
+
+          <select name="gender" required>
+            <option value="">Select Gender</option>
+
+            <option value="Male">Male</option>
+
+            <option value="Female">Female</option>
+
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- COURSE INFORMATION -->
+
+      <div class="section-title">
+        <span>📚</span>
+        Course Information
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label> Select Course <span>*</span> </label>
+
+          <select name="course" required>
+            <option value="">Choose your course</option>
+
+            <option value="Basic Computer">Basic Computer</option>
+
+            <option value="Web Design">Web Design</option>
+
+            <option value="3D Print Design">3D Print Design</option>
+
+            <option value="Full Stack Development">
+              Full Stack Development
+            </option>
+
+            <option value="Graphic Design">Graphic Design</option>
+
+            <option value="Python Programming">Python Programming</option>
+
+            <option value="Digital Marketing">Digital Marketing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label> Training Mode <span>*</span> </label>
+
+          <select name="mode" required>
+            <option value="">Select Training Mode</option>
+
+            <option value="Online">💻 Online Class</option>
+
+            <option value="Physical">🏫 Physical Class</option>
+
+            <option value="Both">🔄 Online + Physical</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label> Course Duration <span>*</span> </label>
+
+          <select name="duration" required>
+            <option value="">Select Duration</option>
+
+            <option value="1 Month">1 Month</option>
+
+            <option value="2 Months">2 Months</option>
+
+            <option value="3 Months">3 Months</option>
+
+            <option value="6 Months">6 Months</option>
+
+            <option value="1 Year">1 Year</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label> Preferred Class Time <span>*</span> </label>
+
+          <select name="preferred_session" required>
+            <option value="">Select Class Time</option>
+
+            <option value="Morning">🌅 Morning</option>
+
+            <option value="Day">☀️ Day</option>
+
+            <option value="Evening">🌆 Evening</option>
+
+            <option value="Night">🌙 Night</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label> Admission Date <span>*</span> </label>
+
+          <input type="date" name="admission_date" required />
+        </div>
+
+        <div class="form-group">
+          <label> Preferred Start Time </label>
+
+          <input type="time" name="preferred_time" />
+        </div>
+      </div>
+
+      <!-- MESSAGE -->
+
+      <div class="section-title">
+        <span>💬</span>
+        Additional Information
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group full">
+          <label> Message / Requirements </label>
+
+          <textarea
+            name="message"
+            placeholder="Write your message or any special requirements..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+
+      <div class="submit-area">
+        <button type="submit" class="submit-btn">
+          🎓 Submit Admission Form
+        </button>
+
+        <div class="required-note">* Required fields</div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block extra_js %} {% load static %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

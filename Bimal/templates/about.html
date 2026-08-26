@@ -1,0 +1,704 @@
+{% extends 'base.html' %} {% load static %} {% block title %}About Me | Bimal
+Chunara{% endblock %} {% block content %}
+
+<section class="about-section">
+  <div class="about-container">
+    <!-- Page Header -->
+    <div class="about-header">
+      <h1>About Me</h1>
+      <p>Get to know me better</p>
+    </div>
+
+    <div class="about-grid">
+      <!-- Photo Section -->
+      <div class="about-photo-column">
+        <div class="about-sticky">
+          <div class="about-image-box">
+            <img
+              src="{% static 'images/bimal.jpg' %}"
+              alt="Bimal Chunara"
+              class="about-photo"
+            />
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-number">4+</div>
+            <div class="experience-text">Years of Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="about-content">
+        <!-- Introduction -->
+        <div class="about-block">
+          <h2>Hi, I'm Bimal Chunara</h2>
+
+          <p>
+            I am a passionate Full Stack Developer with strong knowledge in IT
+            and Computer Engineering. With over 4 years of experience, I
+            specialize in building modern, fast, and beautiful web applications.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="about-block">
+          <h2>Education</h2>
+
+          <div class="education-card">
+            <h3>IT / Computer Engineering</h3>
+
+            <p class="education-school">
+              Shree Durgalaxmi Model Secondary School
+            </p>
+
+            <p class="education-description">
+              Successfully completed my studies with strong foundation in
+              programming and technology.
+            </p>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="about-block">
+          <h2>Skills</h2>
+
+          <div class="skills-container">
+            <!-- Html,CSS & Java -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Html,CSS &amp; Java</span>
+                <span>90%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+
+            <!-- C Programming -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>C program,C++, &amp; C#</span>
+                <span>75%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+              </div>
+            </div>
+
+            <!-- JavaScript & React -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>JavaScript &amp; React.js ,Django</span>
+                <span>60%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="60%"></div>
+              </div>
+            </div>
+
+            <!-- Database Technologies -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>MySQL,Php,Bootstrap,MongoDB,GitHub</span>
+                <span>70%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="70%"></div>
+              </div>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>3D Design, Figma ,UI/UX Design</span>
+                <span>30%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="30%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience & Knowledge -->
+        <div class="info-grid">
+          <!-- Experience -->
+          <div class="info-card">
+            <h3>Experience</h3>
+
+            <ul>
+              <li>
+                <span>✓</span>
+                4+ Years Full Stack Development
+              </li>
+
+              <li>
+                <span>✓</span>
+                Multiple Web Projects Completed
+              </li>
+
+              <li>
+                <span>✓</span>
+                Strong Problem Solving Skills
+              </li>
+            </ul>
+          </div>
+
+          <!-- Knowledge -->
+          <div class="info-card">
+            <h3>Knowledge Areas</h3>
+
+            <ul>
+              <li>• Web Application Development</li>
+              <li>• Responsive &amp; Modern Design</li>
+              <li>• Backend Development</li>
+              <li>• API Integration</li>
+              <li>• Version Control (Git)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision -->
+    <div class="vision-section">
+      <div class="vision-card">
+        <h2>Our Vision</h2>
+
+        <p>
+          To empower businesses and individuals across Nepal with powerful,
+          beautiful, and modern digital solutions that help them grow and
+          succeed in the online world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="journey-section" id="journey">
+
+    <div class="journey-orb orb-one"></div>
+    <div class="journey-orb orb-two"></div>
+
+    <div class="journey-container">
+
+        <!-- HEADER -->
+        <div class="journey-header">
+            <span class="journey-label">
+                <span class="live-dot"></span>
+                MY JOURNEY
+            </span>
+
+            <h2>
+                My <span>Journey</span>
+            </h2>
+
+            <p>
+                Every milestone represents a new lesson, a new challenge,
+                and another step toward becoming a
+                <strong>Full Stack Django Developer.</strong>
+            </p>
+        </div>
+
+
+        <!-- SLIDER -->
+        <div class="journey-slider-area">
+
+            <!-- LEFT BUTTON -->
+            <button class="journey-btn prev-btn" id="journeyPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+
+            <div class="journey-slider" id="journeySlider">
+
+
+                <!-- ================= 2023 ================= -->
+                <article class="journey-card">
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="year">2023</span>
+                            <span class="grade">CLASS 9(IT)</span>
+                        </div>
+
+                        <div class="journey-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="card-line"></div>
+
+                    <h3>Started Computer Engineering</h3>
+
+                    <p class="description">
+                        In 2023, I studied in CLASS 9(IT) at Durgalaxmi School
+                        under the Computer Engineering program. This was
+                        the beginning of my journey into programming,
+                        computers and web development.
+                    </p>
+
+                    <h4>Subjects I Studied</h4>
+
+                    <ul class="subject-list">
+                        <li>
+                            <span>01</span>
+                            Programming Principles and Concepts in C Language
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            Fundamentals of Computer and Applications
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            Fundamentals of Electro-System
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            Website Design
+                        </li>
+                    </ul>
+
+                    <div class="technology-list">
+                        <span>C program</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="card-number">01</div>
+
+                </article>
+
+
+                <!-- ================= 2024 ================= -->
+                <article class="journey-card">
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="year">2024</span>
+                            <span class="grade">CLASS 10(IT)</span>
+                        </div>
+
+                        <div class="journey-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="card-line"></div>
+
+                    <h3>Started Web Development</h3>
+
+                    <p class="description">
+                        In 2024, I moved to CLASS 10(IT) at Durgalaxmi School
+                        and continued my Computer Engineering studies.
+                        During this year, I learned many new concepts
+                        related to programming, coding and technology.
+                    </p>
+
+                    <h4>Subjects I Studied</h4>
+
+                    <ul class="subject-list">
+                        <li>
+                            <span>01</span>
+                            Data Structure and Object-Oriented Programming
+                            (OOP) Concepts Using C++
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            Computer Hardware, Electronics Repair and Maintenance
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            Database Management System
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            Digital Design and Microprocessor
+                        </li>
+                    </ul>
+
+                    <p class="description extra-text">
+                        Grade 10 was an important year for me. I gained
+                        practical knowledge in coding, hardware, databases,
+                        digital systems and microprocessors. My interest
+                        in programming became even stronger.
+                    </p>
+
+                    <div class="technology-list">
+                        <span>C++ Programming</span>
+                        <span>MySQl Database</span>
+                        
+                    </div>
+
+                    <div class="card-number">02</div>
+
+                </article>
+
+
+                <!-- ================= 2025 ================= -->
+                <article class="journey-card">
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="year">2025</span>
+                            <span class="grade">CLASS 11(IT)</span>
+                        </div>
+
+                        <div class="journey-icon python-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="card-line"></div>
+
+                    <h3>Full Stack Development</h3>
+
+                    <p class="description">
+                        After completing my SEE, I went to Bangalore, India
+                        during my three-month vacation. I joined
+                        <strong>Prostack Academy, Bangalore</strong>,
+                        where I received Full Stack Development training.
+                    </p>
+
+                    <p class="description">
+                        During the training, I learned frontend, backend,
+                        databases and software development. After returning
+                        to Nepal, I joined Durgalaxmi School for higher
+                        secondary education and chose Computer Engineering.
+                    </p>
+
+                    <h4>Class 11 Subjects</h4>
+
+                    <ul class="subject-list">
+                        <li>
+                            <span>01</span>
+                            Programming in Java
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            Computer Organization and Architecture
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            Operating System
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            Web and Mobile Application Development
+                        </li>
+                    </ul>
+
+                    <p class="description extra-text">
+                        My Bangalore training and Class 11 studies made me
+                        even more interested in coding and software development.
+                    </p>
+
+                    <div class="technology-list">
+                        <span>Full Stack Development</span>
+                        <span>JaVa Django,Python</span>
+                        <span>PHP, MySQL,MAngoDB,Github</span>
+                        <span>Figma, Bootstrap,UI/UX Design,3D Design ,Mobile Application Development</span>
+                        </span>
+                    </div>
+
+                    <div class="card-number">03</div>
+
+                </article>
+
+
+                <!-- ================= 2026 ================= -->
+                <article class="journey-card current-card">
+
+                    <div class="current-glow"></div>
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="year">2026</span>
+                            <span class="grade">CLASS 12(IT)</span>
+                        </div>
+
+                        <div class="journey-icon rocket-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="card-line"></div>
+
+                    <h3> Software Developement</h3>
+
+                    <p class="description">
+                        In 2026, I entered Class 12 and continued my studies
+                        in Computer Engineering at Durgalaxmi School.
+                        Currently, I am learning more advanced concepts
+                        related to programming, networks, technology and
+                        software development.
+                    </p>
+
+                    <h4>Class 12 Subjects</h4>
+
+                    <ul class="subject-list">
+                        <li>
+                            <span>01</span>
+                            Visual Programming
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            Computer Network
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            Contemporary Technology
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            Software Engineering and Project
+                        </li>
+                    </ul>
+
+                    <p class="description extra-text">
+                        I am continuing to improve my coding skills and
+                        building projects to prepare myself for a successful
+                        career in Computer Engineering and Full Stack Development.
+                    </p>
+
+                    <div class="technology-list">
+                      
+                        <span>React.js</span>
+                        <span>Cisco packet tracer</span>
+                    </div>
+
+                    <div class="learning-status">
+                        <span class="status-dot"></span>
+                        Currently Learning & Building
+                    </div>
+
+                    <div class="card-number">04</div>
+
+                </article>
+
+            </div>
+
+
+            <!-- RIGHT BUTTON -->
+            <button class="journey-btn next-btn" id="journeyNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+        </div>
+
+
+        <!-- BOTTOM CONTROLS -->
+        <div class="journey-bottom">
+
+            <div class="progress-container">
+                <div class="progress-bar" id="journeyProgress"></div>
+            </div>
+
+            <div class="journey-counter">
+                <span id="journeyCurrent">01</span>
+                <small>/</small>
+                <span>04</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="certificates-section">
+
+    <div class="certificates-container">
+
+        <!-- Heading -->
+
+        <div class="certificates-header">
+
+            <span class="certificate-badge">
+                MY ACHIEVEMENTS
+            </span>
+
+            <h2>
+                My <span>Certificates</span>
+            </h2>
+
+            <p>
+                Certificates and achievements that represent my
+                learning journey, training and technical skills.
+            </p>
+
+        </div>
+
+
+        <!-- Certificate Grid -->
+
+        <div class="certificate-grid">
+
+            {% for certificate in certificates %}
+
+            <div class="certificate-card">
+
+                <!-- Image -->
+
+                <div class="certificate-image">
+
+                    {% if certificate.image %}
+
+                        <img
+                            src="{{ certificate.image.url }}"
+                            alt="{{ certificate.title }}"
+                        >
+
+                    {% else %}
+
+                        <div class="certificate-placeholder">
+
+                            <i class="fas fa-certificate"></i>
+
+                            <span>
+                                Certificate
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Content -->
+
+                <div class="certificate-content">
+
+                    <div class="certificate-icon">
+
+                        <i class="fas fa-award"></i>
+
+                    </div>
+
+                    <h3>
+                        {{ certificate.title }}
+                    </h3>
+
+                    {% if certificate.issuer %}
+
+                    <p class="certificate-issuer">
+
+                        <i class="fas fa-building"></i>
+
+                        {{ certificate.issuer }}
+
+                    </p>
+
+                    {% endif %}
+
+
+                    {% if certificate.issue_date %}
+
+                    <p class="certificate-date">
+
+                        <i class="fas fa-calendar"></i>
+
+                        {{ certificate.issue_date|date:"F Y" }}
+
+                    </p>
+
+                    {% endif %}
+
+
+                    {% if certificate.description %}
+
+                    <p class="certificate-description">
+
+                        {{ certificate.description }}
+
+                    </p>
+
+                    {% endif %}
+
+
+                    <div class="certificate-buttons">
+
+                        {% if certificate.certificate_file %}
+
+                        <a
+                            href="{{ certificate.certificate_file.url }}"
+                            target="_blank"
+                            class="certificate-btn"
+                        >
+
+                            <i class="fas fa-eye"></i>
+
+                            View Certificate
+
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+                <div class="no-certificate">
+
+                    <i class="fas fa-certificate"></i>
+
+                    <h3>No Certificates Yet</h3>
+
+                    <p>
+                        Certificates will appear here soon.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{% static 'js/journey.js' %}"></script>
+{% endblock %} {% block extra_js %} {% load static %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
