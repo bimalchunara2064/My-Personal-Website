@@ -53,16 +53,21 @@ body {
 .logo {
     text-decoration: none;
 
-    font-size: 36px;
+    font-size: 35px;
     font-weight: 700;
 
     color: #ade20d;
 
     letter-spacing: -1.5px;
+    image-rendering: crisp-edges;
 }
 
-.logo span {
-    color:#52c2ff;
+.logo img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 
@@ -196,7 +201,7 @@ body {
 }
 
 .dropdown-menu a:hover {
-    background:red;
+    background: #13c3c9;
     color: #ffffff;
 }
 
@@ -1062,6 +1067,11 @@ main {
         font-size: 27px;
     }
 
+    .logo img {
+        width: 70px;
+        height: 70px;
+    }
+
     .menu-btn {
         display: block;
     }
@@ -1135,6 +1145,11 @@ main {
 
     .logo {
         font-size: 23px;
+    }
+
+    .logo img {
+        width: 105px;
+        height: 52px;
     }
 
     .menu-btn {
@@ -1437,7 +1452,7 @@ img {
 ========================================= */
 
 .featured-section {
-    background: #030712;
+    background: #01090c;
 
     padding: 80px 0;
 }
@@ -1459,7 +1474,7 @@ img {
 }
 
 .feature-card {
-    background: #000;
+    background: #d8f80a;
 
     padding: 32px;
 
@@ -1477,13 +1492,14 @@ img {
 }
 
 .feature-card h3 {
-    font-size: 24px;
-
+    font-size: 30px;
+    color:rgb(229, 24, 24);
     margin-bottom: 15px;
 }
 
 .feature-card p {
-    color: #9ca3af;
+    color:black;
+    font-size: 18px;
 
     line-height: 1.7;
 }
@@ -1518,7 +1534,7 @@ img {
 }
 
 .about-content p span {
-    color: #a855f7;
+    color:rgb(10, 178, 228);
 }
 
 .about-link {
@@ -1560,7 +1576,7 @@ img {
 }
 
 .about-content p {
-    color: #d1d5db;
+    color: white;
 
     font-size: 18px;
 
@@ -5708,7 +5724,7 @@ img {
             border: 1px solid #444;
             border-radius: 50px;
             font-size: 13px;
-            color:white;
+            color:rgb(19, 199, 235);
             margin-bottom: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -5722,7 +5738,7 @@ img {
         }
 
         .gallery-hero h1 span {
-            color:white;
+            color:rgb(27, 216, 13);
         }
 
         .gallery-hero p {
@@ -6092,7 +6108,7 @@ img {
 
             border-radius: 30px;
 
-            color: #ddd;
+            color:#13c3c9;
 
             font-size: 13px;
 
@@ -6112,11 +6128,11 @@ img {
         }
 
         .hero h1 span {
-            color: white;
+            color: #14ea42;
         }
 
         .hero p {
-            color: #aaa;
+            color: white;
 
             font-size: 16px;
 

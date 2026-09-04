@@ -33,8 +33,7 @@
 <main class="container">
   <div class="section-title">
     <h2>
-      {% if active_category == 'all' %} All Videos {% else %} {{
-      active_category|title }} {% endif %}
+      {% if active_category == 'all' %} All Videos {% else %} {% endif %}
     </h2>
 
     <span> {{ videos|length }} Videos </span>
