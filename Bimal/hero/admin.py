@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.utils.html import format_html
 from .models import Contact
 from .models import Certificate
 from .models import GalleryPhoto
@@ -63,7 +62,6 @@ class VideoAdmin(admin.ModelAdmin):
 
     # Admin list page
     list_display = (
-        'thumbnail_preview',
         'title',
         'category',
         'views',
@@ -104,7 +102,6 @@ class VideoAdmin(admin.ModelAdmin):
         'downloads',
         'created_at',
         'updated_at',
-        'thumbnail_preview',
     )
 
     # Organize Add/Edit form
@@ -126,10 +123,7 @@ class VideoAdmin(admin.ModelAdmin):
             '🖼️ Media',
             {
                 'fields': (
-                    'thumbnail',
-                    'thumbnail_preview',
                     'video_file',
-                    'youtube_url',
                 )
             }
         ),
@@ -164,24 +158,6 @@ class VideoAdmin(admin.ModelAdmin):
             }
         ),
     )
-
-    # Thumbnail preview
-    def thumbnail_preview(self, obj):
-
-        if obj.thumbnail:
-
-            return format_html(
-                '<img src="{}" width="120" height="70" '
-                'style="object-fit:cover;border-radius:8px;" />',
-                obj.thumbnail.url
-            )
-
-        return "No Thumbnail"
-
-    thumbnail_preview.short_description = "Preview"
-
-
-
 
 from .models import (
     TrainingService,

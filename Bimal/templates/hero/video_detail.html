@@ -16,30 +16,10 @@
 
     <div class="video-player">
       {% if video.video_file %}
-      <video
-        controls
-        preload="metadata"
-        poster="{% if video.thumbnail %}{{ video.thumbnail.url }}{% endif %}"
-      >
+      <video controls preload="metadata">
         <source src="{{ video.video_file.url }}" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
-      {% elif video.youtube_url %}
-      <iframe
-        src="{{ video.youtube_url }}"
-        title="{{ video.title }}"
-        allow="
-          accelerometer;
-          autoplay;
-          clipboard-write;
-          encrypted-media;
-          gyroscope;
-          picture-in-picture;
-        "
-        allowfullscreen
-      ></iframe>
-      {% elif video.thumbnail %}
-      <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" />
       {% else %}
       <p>Video media is not available.</p>
       {% endif %}
@@ -63,11 +43,10 @@
       {% for related_video in related_videos %}
       <article class="video-card">
         <div class="thumbnail">
-          {% if related_video.thumbnail %}
-          <img
-            src="{{ related_video.thumbnail.url }}"
-            alt="{{ related_video.title }}"
-          />
+          {% if related_video.video_file %}
+          <video muted preload="metadata">
+            <source src="{{ related_video.video_file.url }}" type="video/mp4" />
+          </video>
           {% else %}
           <div class="thumbnail-placeholder">Video</div>
           {% endif %}

@@ -87,10 +87,9 @@ class Video(models.Model):
         ('personal', 'Personal'),
         ('school', 'School Event'),
         ('rap', 'Rap Videos'),
-        ('travel', 'Travel'),
-        ('family', 'My Family'),
-        ('sports', 'Sports Teams'),
-        ('other', 'Other'),
+        ('group', 'Group Dance Video'),
+        
+       
     ]
 
     title = models.CharField(max_length=200)
@@ -118,10 +117,6 @@ class Video(models.Model):
         null=True
     )
 
-    youtube_url = models.URLField(
-        blank=True,
-        null=True
-    )
 
     views = models.PositiveIntegerField(
         default=0

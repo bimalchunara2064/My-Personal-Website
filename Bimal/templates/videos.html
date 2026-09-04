@@ -49,16 +49,14 @@
       <!-- THUMBNAIL -->
 
       <div class="thumbnail">
-        {% if video.thumbnail %}
-
-        <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" />
-
-        {% elif video.video_file %}
+        {% if video.video_file %}
 
         <video muted preload="metadata">
           <source src="{{ video.video_file.url }}" type="video/mp4" />
         </video>
 
+        {% else %}
+        <div class="thumbnail-placeholder">Video</div>
         {% endif %}
 
         <div class="play-button">▶</div>

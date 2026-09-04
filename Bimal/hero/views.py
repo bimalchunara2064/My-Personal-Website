@@ -68,9 +68,7 @@ def video_gallery(request):
         ('personal', 'Personal'),
         ('school', 'School Event'),
         ('rap', 'Rap Videos'),
-        ('travel', 'Travel'),
-        ('family', 'My Family'),
-        ('sports', 'Sports Teams'),
+        
     ]
 
     context = {

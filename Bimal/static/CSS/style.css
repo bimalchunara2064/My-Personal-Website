@@ -56,13 +56,13 @@ body {
     font-size: 36px;
     font-weight: 700;
 
-    color: #ffffff;
+    color: #ade20d;
 
     letter-spacing: -1.5px;
 }
 
 .logo span {
-    color: #8b3dff;
+    color:#52c2ff;
 }
 
 
@@ -196,7 +196,7 @@ body {
 }
 
 .dropdown-menu a:hover {
-    background:blue;
+    background:red;
     color: #ffffff;
 }
 
@@ -1030,7 +1030,7 @@ main {
 .footer {
     background: #000000;
 
-    color: #ffffff;
+    color:white;
 
     text-align: center;
 
@@ -1576,7 +1576,7 @@ img {
 
     margin-top: 30px;
 
-    color: #a78bfa;
+    color: yellow;
 
     font-weight: 500;
 
@@ -1584,7 +1584,7 @@ img {
 }
 
 .about-link:hover {
-    color: #c4b5fd;
+    color: rgb(10, 178, 228);
 }
 
 
@@ -1739,25 +1739,25 @@ img {
 }
 
 .footer-column h2 {
-    font-size: 25px;
+    font-size: 40px;
 
     margin-bottom: 15px;
 }
 
 .footer-column h3 {
-    font-size: 18px;
+    font-size: 30px;
 
     margin-bottom: 22px;
 }
 
 .footer-description {
-    color: #9ca3af;
+    color: #fff;
 
     margin-bottom: 20px;
 }
 
 .footer-location {
-    color: #6b7280;
+    color:#fff;
 
     font-size: 14px;
 }
@@ -1773,13 +1773,13 @@ img {
 }
 
 .footer-column ul li a {
-    color: #9ca3af;
+    color: #fff;
 
     transition: 0.3s;
 }
 
 .footer-column ul li a:hover {
-    color: #a855f7;
+    color: hsl(73, 91%, 65%);
 }
 
 
@@ -3207,7 +3207,7 @@ img {
 
 .contact-section {
     background: #000000;
-    color: #fff;
+    color: rgb(10, 178, 228);
     padding: 80px 0;
     min-height: 100vh;
 }
@@ -3237,7 +3237,7 @@ img {
 }
 
 .contact-header p {
-    color: white;
+    color: rgb(5, 230, 50);
     font-size: 20px;
     margin: 0;
 }
@@ -3251,7 +3251,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    background:blue;
+    background:#111827;
 
     border-radius: 24px;
 
